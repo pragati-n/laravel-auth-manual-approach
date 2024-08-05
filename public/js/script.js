@@ -52,6 +52,10 @@ jQuery(document).on("submit","#frm_register",function(e){
         data:form.serialize(),
         success:function(data){
             location.href = '/login';
+        },
+        error:function(response){
+          
+            $('#register_error').show().html(response['responseText']);
         }
     })
 });
