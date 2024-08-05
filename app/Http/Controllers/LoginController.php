@@ -9,19 +9,19 @@ class LoginController extends Controller
 {
     public function authenticate(Request $request)
     {
+        $remeber_me = $request->remember_me ? true : false;
         $credentials = $request->validate(
             ['email' => ['required','email'],
             'password' =>'required',
         ]);
 
-        if(auth::attempt($credentials))
+        if(auth::attempt($credentials,$remeber_me))
         {
+            echo "innnn";
+           
             $request->session()->regenerate();
- 
-            return redirect()->intended('dashboard');
+            return response()->json(['status'=>"success","redirect_url"=> '/']); 
         }
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return  response()->json(['status'=>"error","error_msg"=> 'Please try again'],401); 
     }
 }

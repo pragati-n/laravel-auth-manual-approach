@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +21,16 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('login');
+    if(!Auth::check())
+    {
+      
+     return view('login');
+    }
+    echo  "hello ".Auth::user()->name ;
+});
+Route::get('/register', function () {
+    return view('register');
 });
 
 Route::post('/authenticate', [LoginController::class,'authenticate']);
+Route::post('/register', [RegisterController::class,'register']); 

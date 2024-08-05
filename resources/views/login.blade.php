@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    
-    <script src="{{ asset('js/jquery-3.7.1.js') }}" ></script>
-    <script src="{{ asset('js/script.js') }}" ></script>
-   
-    <title>Login project</title>
-</head>
-<body>
-    <div class="container">
+@extends('layout')
+
+@section('content')
         <div class="row">
             <div class="col-lg-12">
                 <form name="frm_login" id="frm_login">
@@ -30,10 +19,10 @@
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <div id="login_error" class=" alert alert-danger" style="display:none;">
+                    </div>  
                 </form>
             </div>
         </div>
-    </div>
+@endsection  
     
-</body>
-</html>
