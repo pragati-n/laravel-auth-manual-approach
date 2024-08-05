@@ -20,6 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/* Route::get('/', function () {
+    
+    echo "hello world";
+})->middleware('auth.basic'); */
+
 Route::get('/login', function () {
     if(!Auth::check())
     {
@@ -31,6 +36,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::get("logout",[LoginController::class,"logout"]);
 
 Route::post('/authenticate', [LoginController::class,'authenticate']);
 Route::post('/register', [RegisterController::class,'register']); 
