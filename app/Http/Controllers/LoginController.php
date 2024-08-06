@@ -14,7 +14,7 @@ class LoginController extends Controller
             ['email' => ['required','email'],
             'password' =>'required',
         ]);
-
+      
         if(auth::attempt($credentials,$remeber_me))
         {
             echo "innnn";
