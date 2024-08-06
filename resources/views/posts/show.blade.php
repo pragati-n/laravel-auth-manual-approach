@@ -27,5 +27,11 @@
     </div>
 </div>
 
+
+<div class="content-div">
+    <h2> content header </h2>
+    <p> content body</p>
+
+</div>
 @endsection
 

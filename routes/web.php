@@ -45,5 +45,5 @@ Route::post('/authenticate', [LoginController::class,'authenticate'])->middlewar
 Route::post('/register', [RegisterController::class,'register'])->middleware('guest'); 
 
 
-Route::resource('posts',PostController::class)->middleware(['auth'])->middleware(['auth']);
+Route::resource('posts',PostController::class)->middleware(['auth']);
 Route::post('save_post1',[PostController::class,'save_post1'])->middleware(['auth']);
